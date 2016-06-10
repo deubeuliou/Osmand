@@ -141,7 +141,6 @@ public class SearchPoiFilterFragment extends OsmAndListFragment implements Searc
 		super.onResume();
 		poiFitlersAdapter.setResult(getFilters(searchEditText == null ? "" : searchEditText.getText().toString()));
 while (SearchPOIActivity.stopSearching) {
-sleep(1000);
 }
 	}
 
