@@ -35,6 +35,7 @@ import net.osmand.plus.OsmandApplication;
 import net.osmand.plus.OsmandPlugin;
 import net.osmand.plus.R;
 import net.osmand.plus.activities.search.SearchActivity.SearchActivityChild;
+import net.osmand.plus.activities.search.SearchPOIActivity;
 import net.osmand.plus.base.OsmAndListFragment;
 import net.osmand.plus.poi.NominatimPoiFilter;
 import net.osmand.plus.poi.PoiFiltersHelper;
@@ -139,6 +140,9 @@ public class SearchPoiFilterFragment extends OsmAndListFragment implements Searc
 	public void onResume() {
 		super.onResume();
 		poiFitlersAdapter.setResult(getFilters(searchEditText == null ? "" : searchEditText.getText().toString()));
+while (SearchPOIActivity.stopSearching) {
+sleep(1000);
+}
 	}
 
 	public List<Object> getFilters(String s) {
