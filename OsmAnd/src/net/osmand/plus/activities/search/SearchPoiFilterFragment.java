@@ -139,8 +139,6 @@ public class SearchPoiFilterFragment extends OsmAndListFragment implements Searc
 	@Override
 	public void onResume() {
 		super.onResume();
-while (SearchPOIActivity.stopSearching) {
-}
 		poiFitlersAdapter.setResult(getFilters(searchEditText == null ? "" : searchEditText.getText().toString()));
 	}
 
@@ -212,6 +210,7 @@ while (SearchPOIActivity.stopSearching) {
 
 	@Override
 	public void onListItemClick(ListView listView, View v, int position, long id) {
+if (!SearchPOIActivity.stopSearching) {
 		final Object item = getListAdapter().getItem(position);
 		ResourceManager rm = getApp().getResourceManager();
 		if (!rm.containsAmenityRepositoryToSearch(false)) {
@@ -241,6 +240,7 @@ while (SearchPOIActivity.stopSearching) {
 			}
 		}
 	}
+}
 
 	private void showFilterActivity(String filterId) {
 		final Intent newIntent = new Intent(getActivity(), SearchPOIActivity.class);
