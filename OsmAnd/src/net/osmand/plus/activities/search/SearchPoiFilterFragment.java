@@ -139,9 +139,9 @@ public class SearchPoiFilterFragment extends OsmAndListFragment implements Searc
 	@Override
 	public void onResume() {
 		super.onResume();
-		poiFitlersAdapter.setResult(getFilters(searchEditText == null ? "" : searchEditText.getText().toString()));
 while (SearchPOIActivity.stopSearching) {
 }
+		poiFitlersAdapter.setResult(getFilters(searchEditText == null ? "" : searchEditText.getText().toString()));
 	}
 
 	public List<Object> getFilters(String s) {
